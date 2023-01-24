@@ -16,3 +16,4 @@ for row in result: #using for loop
    list.append(dict)
 
 print(list)
+print(list)
