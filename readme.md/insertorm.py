@@ -11,4 +11,4 @@ session.add_all([ #adding all elements
    rose(name = 'S.M.Krishna', adress = 'Budhwar Peth, Pune', email = 'smk@gmail.com')
 
 ])
-session.commit()#pending transaction
+session.commit()#pending transactions
