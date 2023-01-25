@@ -1,0 +1,10 @@
+{%extends 'main/base.html'%}
+{%block title%}view list{%endblock%}<!--  -->
+{%block content%}
+   <h1>{{x.name}}</h1>  <!-- using variables -->    
+   <ul>   <!--  list the items--> 
+        {% for Info in x.info_set.all %}  <!-- using for loop for list all the items -->
+           <li>{{Info.email}}</li>
+         {% endfor %}
+   </ul>
+{%endblock%}

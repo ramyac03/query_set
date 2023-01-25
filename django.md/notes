@@ -1,0 +1,58 @@
+from main.models import Define ,Info
+>>> Define.objects.all()
+<QuerySet [<Define: ramy>, <Define: kumar>, <Define: ramya>]>
+>>> Info.objects.all()
+<QuerySet [<Info: www>]>
+>>> t
+Traceback (most recent call last):     
+  File "<console>", line 1, in <module>
+NameError: name 't' is not defined     
+>>> t.info_set.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 't' is not defined
+>>> t=Define(name ="raj")
+>>> t.save()
+>>> Define.objects.all()
+<QuerySet [<Define: ramy>, <Define: kumar>, <Define: ramya>, <Define: raj>]>
+>>> t
+<Define: raj>
+>>> t.info_set.all()
+<QuerySet []>
+>>> t.info_set.create(email="wxys")
+<Info: wxys>
+>>> info.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'info' is not defined
+>>> t.info.objects.all() 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Define' object has no attribute 'info'
+>>> t.info_set.all()     
+<QuerySet [<Info: wxys>]>
+#using filter options
+
+t.filter(name__startswith ="raj") 
+<QuerySet [<Define: raj>]>
+>>> x=t.get(id=1)
+>>> x.delete()
+(1, {'main.Define': 1})
+>>> t
+<django.db.models.manager.Manager object at 0x000001DFEF545F60>
+>>> t.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: rose>]>
+>>> t1=Define(name ="vino")
+>>> t1.save()
+>>> Define.objects.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: rose>, <Define: vino>]>
+>>> x=t.get(id=5)           
+>>> x.delete()
+(1, {'main.Define': 1})
+>>> Define.objects.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: vino>]>
+>>> t1=Define(name="first list")
+>>> t1.save()
+>>> t2 =Define(name= "second list")
+>>> t2.save()
+>>> 

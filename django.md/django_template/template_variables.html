@@ -1,0 +1,16 @@
+
+#using general method
+<h1>Hello{{firstname}},how are you?</h1> 
+
+#using variables{{}}
+{%with firstname ="ramya"%}
+<h1>Hello{{firstname}},how are you?</h1>
+
+
+<ul> #unorderd list
+          {%for x in define %} #for looping
+          <li>{{x.firstname}}</li> #list
+          {%endfor%}
+</ul>
+
+{%%} #used for django template html
