@@ -1,0 +1,33 @@
+https://www.programink.com/django-tutorial/django-queryset.html
+from main.models import Blog,Author,Entry
+>>> b=Blog(name ="kumar",tagline ="ok")
+>>> b.save()
+>>> Blog.objects.all()
+<QuerySet [<Blog: ram>, <Blog: kumar>, <Blog: ram>, <Blog: ram>, <Blog: kumar>]>
+>>> Blog.objects.filter(tagline_startwith="all")
+django.core.exceptions.FieldError: Cannot resolve keyword 'tagline_startwith' into field. Choices are: entry, id, name, tagline
+>>> 
+>>> Blog.objects.filter(name__startswith="ram") 
+<QuerySet [<Blog: ram>, <Blog: ram>, <Blog: ram>]>
+>>> a=Blog.objects.all()
+>>> a[0]
+<Blog: ram>
+>>> a[0:3]
+<QuerySet [<Blog: ram>, <Blog: kumar>, <Blog: ram>]>
+>>> my=Blog.objects.filter(name ="ram").values()
+>>> my.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'objects'
+>>> my.all()         
+<QuerySet [{'id': 1, 'name': 'ram', 'tagline': 'all the best'}, {'id': 3, 'name': 'ram', 'tagline': 'all'}, {'id': 4, 'name': 'ram', 'tagline': 'all'}]>
+>>> my=Blog.objects.exclude(name="ram")
+>>> my.all()
+<QuerySet [<Blog: kumar>, <Blog: kumar>, <Blog: kumar>]>
+>>>>> my=Blog.objects.exclude(name="ram",tagline="all")
+>>> my.all()
+<QuerySet [<Blog: ram>, <Blog: kumar>, <Blog: kumar>, <Blog: kumar>]>
+>>> my=Blog.objects.exclude(name="ram").exclude(tagline="all") 
+>>> my.all()
+<QuerySet [<Blog: kumar>, <Blog: kumar>, <Blog: kumar>]>
+>>>

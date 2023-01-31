@@ -1,0 +1,157 @@
+Microsoft Windows [Version 10.0.19044.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\TLSPC-116>cd test_repo
+The system cannot find the path specified.
+
+C:\Users\TLSPC-116>cd desktop
+
+C:\Users\TLSPC-116\Desktop>cd test_repo
+
+C:\Users\TLSPC-116\Desktop\test_repo>git init
+Initialized empty Git repository in C:/Users/TLSPC-116/Desktop/test_repo/.git/
+
+C:\Users\TLSPC-116\Desktop\test_repo>git commit
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\TLSPC-116\Desktop\test_repo>cd ..
+
+C:\Users\TLSPC-116\Desktop>git commit
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\Users\TLSPC-116\Desktop>cd test_repo
+
+C:\Users\TLSPC-116\Desktop\test_repo>git add readme.md
+
+C:\Users\TLSPC-116\Desktop\test_repo>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   readme.md/__pycache__/basecreate.cpython-310.pyc
+        new file:   readme.md/basecreate.py
+        new file:   readme.md/filter.py
+        new file:   readme.md/insertorm.py
+        new file:   readme.md/selorm.py
+        new file:   readme.md/templates/__pycache__/bat.cpython-310.pyc
+        new file:   readme.md/templates/apps.py
+        new file:   readme.md/templates/bat.py
+        new file:   readme.md/templates/delsql.py
+        new file:   readme.md/templates/id.py
+        new file:   readme.md/templates/in.py
+        new file:   readme.md/templates/se.py
+        new file:   readme.md/templates/update.py
+        new file:   readme.md/uporm.py
+
+
+C:\Users\TLSPC-116\Desktop\test_repo>git commit -m "added readme.md"
+[master (root-commit) 9089646] added readme.md
+ 14 files changed, 132 insertions(+)
+ create mode 100644 readme.md/__pycache__/basecreate.cpython-310.pyc
+ create mode 100644 readme.md/basecreate.py
+ create mode 100644 readme.md/filter.py
+ create mode 100644 readme.md/insertorm.py
+ create mode 100644 readme.md/selorm.py
+ create mode 100644 readme.md/templates/__pycache__/bat.cpython-310.pyc
+ create mode 100644 readme.md/templates/apps.py
+ create mode 100644 readme.md/templates/bat.py
+ create mode 100644 readme.md/templates/delsql.py
+ create mode 100644 readme.md/templates/id.py
+ create mode 100644 readme.md/templates/in.py
+ create mode 100644 readme.md/templates/se.py
+ create mode 100644 readme.md/templates/update.py
+ create mode 100644 readme.md/uporm.py
+
+C:\Users\TLSPC-116\Desktop\test_repo>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\TLSPC-116\Desktop\test_repo>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.md/selorm.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\TLSPC-116\Desktop\test_repo>git add .
+
+C:\Users\TLSPC-116\Desktop\test_repo>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme.md/selorm.py
+
+
+C:\Users\TLSPC-116\Desktop\test_repo>git commit -m "made changes"
+[master 822b180] made changes
+ 1 file changed, 1 insertion(+)
+
+C:\Users\TLSPC-116\Desktop\test_repo>
+C:\Users\TLSPC-116\Desktop\test_repo>git checkout -b new
+Switched to a new branch 'new'
+
+C:\Users\TLSPC-116\Desktop\test_repo>git add .
+
+C:\Users\TLSPC-116\Desktop\test_repo>git commit -m "first commit on new branch"
+[new 398aa39] first commit on new branch
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\TLSPC-116\Desktop\test_repo>git checkout master
+Switched to branch 'master'
+
+C:\Users\TLSPC-116\Desktop\test_repo>git merge master
+Already up to date.
+
+C:\Users\TLSPC-116\Desktop\test_repo>
+C:\Users\TLSPC-116\Desktop\test_repo>git remote add origin https://github.com/ramyac03/test.git
+
+C:\Users\TLSPC-116\Desktop\test_repo>git checkout master
+Already on 'master'
+
+C:\Users\TLSPC-116\Desktop\test_repo>git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/ramyac03/test.git'
+
+C:\Users\TLSPC-116\Desktop\test_repo>git push -u origin master
+info: please complete authentication in your browser...
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (24/24), 4.57 KiB | 2.29 MiB/s, done.
+Total 24 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/ramyac03/test.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+C:\Users\TLSPC-116\Desktop\test_repo>git config --global user.name "ramya"
+
+C:\Users\TLSPC-116\Desktop\test_repo>git config --global user.email "ramya.chakkarapani@twilightsoftwares.com"
+
+C:\Users\TLSPC-116\Desktop\test_repo>git pull origin master
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), 709 bytes | 78.00 KiB/s, done.
+From https://github.com/ramyac03/test
+ * branch            master     -> FETCH_HEAD
+   822b180..7027993  master     -> origin/master
+Updating 822b180..7027993
+Fast-forward
+ readme.md/insertorm.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\TLSPC-116\Desktop\test_repo>
+https://github.com/ramyac03/test/tree/master/readme.md
+
+

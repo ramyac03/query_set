@@ -1,0 +1,129 @@
+
+#adding elements
+from main.models import Define ,Info
+>>> Define.objects.all()
+<QuerySet [<Define: ramy>, <Define: kumar>, <Define: ramya>]>
+>>> Info.objects.all()
+<QuerySet [<Info: www>]>
+>>> t
+Traceback (most recent call last):     
+  File "<console>", line 1, in <module>
+NameError: name 't' is not defined     
+>>> t.info_set.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 't' is not defined
+>>> t=Define(name ="raj")
+>>> t.save()
+>>> Define.objects.all()
+<QuerySet [<Define: ramy>, <Define: kumar>, <Define: ramya>, <Define: raj>]>
+>>> t
+<Define: raj>
+>>> t.info_set.all()
+<QuerySet []>
+>>> t.info_set.create(email="wxys")
+<Info: wxys>
+>>> info.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'info' is not defined
+>>> t.info.objects.all() 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>clear
+AttributeError: 'Define' object has no attribute 'info'
+>>> t.info_set.all()     
+<QuerySet [<Info: wxys>]>
+#using filter options
+
+t.filter(name__startswith ="raj"__) 
+<QuerySet [<Define: raj>]>
+>>> x=t.get(id=1)
+>>> x.delete()
+(1, {'main.Define': 1})
+>>> t
+<django.db.models.manager.Manager object at 0x000001DFEF545F60>
+>>> t.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: rose>]>
+>>> t1=Define(name ="vino")
+>>> t1.save()
+>>> Define.objects.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: rose>, <Define: vino>]>
+>>> x=t.get(id=5)           
+>>> x.delete()
+(1, {'main.Define': 1})
+>>> Define.objects.all()
+<QuerySet [<Define: kumar>, <Define: ramya>, <Define: raj>, <Define: vino>]>
+>>> t1=Define(name="first list")
+>>> t1.save()
+>>> t2 =Define(name= "second list")
+>>> t2.save()
+>>> 
+{%extends 'main/base.html'%}
+{%block title%}view list{%endblock%}<!--  -->
+{%block content%}
+   <h1>{{x.name}}</h1>  <!-- using variables -->    
+   <ul>   <!--  list the items--> 
+        {% for info in x.info_set.all %}  <!--   using for loop for list all the items -->
+           {% if info.email == xyz %} <!-- using if condition -->
+              <li>{{info.email}}</li>
+            {%endif%}
+         {% endfor %}
+   </ul>
+{%endblock%}
+https://www.beecrowd.com.br/judge/en
+https://interviewing.io/mocks/google-java-order-statistic-of-an-unsorted-arrayM
+
+
+#adding foreign key(many to one relaation)
+PS C:\Users\TLSPC-116\Desktop\Rmaya\django> & c:/Users/TLSPC-116/Desktop/Rmaya/django/djangoenv/Scripts/Activate.ps1
+(djangoenv) PS C:\Users\TLSPC-116\Desktop\Rmaya\django> cd mysite
+(djangoenv) PS C:\Users\TLSPC-116\Desktop\Rmaya\django\mysite> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 31, 2023 - 11:12:37
+Django version 4.1.5, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/ 
+Quit the server with CTRL-BREAK.
+(djangoenv) PS C:\Users\TLSPC-116\Desktop\Rmaya\django\mysite> python manage.py shell
+Python 3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import Author,Entry,Blog
+>>> t=Blog(name="ram",tagline ="all")
+>>> t.save()
+>>> r=Entry(blog=t,headline ="the")
+>>> r.save()
+  
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“17.03.2001” value has an invalid date format. It must be in YYYY-MM-DD format.']
+>>> r=Entry(blog=t,headline ="the",pub_date ="2001-03-17")
+>>> r.save
+<bound method Model.save of <Entry: the>>
+>>> r.save()
+>>> r.Entry.id
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Entry' object has no attribute 'Entry'
+>>> r.blog.id
+4
+>>> r.blog
+<Blog: ram>
+>>> new=r.blog_set.create(headline ="uninom",pub_date="2002-03-12")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Entry' object has no attribute 'blog_set'
+>>> new=r.blog.create(headline ="uninom",pub_date="2002-03-12")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Blog' object has no attribute 'create'
+>>> new=r.blog.objects.create(headline ="uninom",pub_date="2002-03-12") 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\TLSPC-116\Desktop\Rmaya\django\djangoenv\lib\site-packages\django\db\models\manager.py", line 186, in __get__
+    raise AttributeError(
+AttributeError: Manager isn't accessible via Blog instances
+
+
+

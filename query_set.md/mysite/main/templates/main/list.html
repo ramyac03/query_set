@@ -1,0 +1,24 @@
+
+<!--customs forms-->
+{%extends 'main/base.html'%}
+{%block title%}view list{%endblock%}<!--  -->
+{%block content%}
+   <h1>{{x.name}}</h1>  <!-- using variables --> 
+   <form method="post" action ="#"> 
+      {%csrf_token%}<!--add the token   -->
+      <ul>   <!--  list the items--> 
+        {% for info in x.info_set.all %}  <!--   using for loop for list all the items -->
+           {% if info.email == true  %} <!-- using if condition -->
+              <li><input type ="checkbox",value ="clicked",name ="c{{info.id}}"checked>{{info.email}}</li>
+            {%else%}
+               <li><input type ="checkbox",value ="clicked",name ="c{{info.id}}">{{info.email}}</li>
+               
+
+            {%endif%}
+         {% endfor %}
+      </ul>
+    <button type ="submit",name ="save",value ="save">save</button>
+    <input type ="text",name ="new">
+    <button type ="submit",name ="newinfo",value ="newinfo">add info</button>
+   </form> 
+{%endblock%}
